@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --bg-clr: radial-gradient(#313e4d, #162635);
+  --font: 'Plus Jakarta Sans', sans-serif;
+  --piano: #0c0c0c;
+  --white: #eee;
+  --white-2: #ffffffcc;
+  --gray: #555;
+  --blue: #0af;
+  --keys-container: #171717;
+  --white-key: #f3f3f3;
+  --black-key: #111;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  background: var(--bg-clr);
+}
+
+.piano {
+  background: var(--piano);
+  width: 120rem;
+  height: 45rem;
+  margin: 15rem auto 0;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.controls {
+  color: var(--white-2);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 3rem;
+}
+
+.controls h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+/* enable keys btn */
+.switcher-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.switcher {
+  width: 5rem;
+  height: 2.5rem;
+  background: var(--gray);
+  transition: all .3s;
+  display: flex;
+  border-radius: 5rem;
+  padding: .2rem;
+}
+
+.switcher-btn {
+  aspect-ratio: 1/1;
+  height: 100%;
+  background: var(--white);
+  border-radius: 50%;
+}
+
+.switcher-active {
+  background: var(--blue);
+  justify-content: flex-end;
+}
+
+/* keys */
+.piano-keys {
+  width: 100%;
+  height: 35rem;
+  border-radius: 0 0 1rem 1rem;
+  background: var(--keys-container);
+  display: flex;
+  padding: 3rem 4rem;
+}
+
+.key {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: .8rem;
+  user-select: none;
+  position: relative;
+}
+
+.key span {
+  font-weight: 600;
+  position: absolute;
+  font-size: 2rem;
+  transition: all .3s;
+}
+
+.white {
+  --w-key-border: .8rem solid #ccc;
+  --w-key-clr: #00000035;
+
+  background: var(--white-key);
+  color: var(--w-key-clr);
+  flex-grow: 1;
+  border-radius: .5rem;
+  border-bottom: var(--w-key-border);
+  margin-left: -1.7rem;
+  z-index: 1;
+}
+
+.white-pressed {
+  background: #ddd;
+  border: none;
+}
+
+.black {
+  --b-key-border: .8rem solid #1f1f1f;
+  --b-key-clr: linear-gradient(#000, #333);
+
+  width: 4rem;
+  height: 15rem;
+  color: #ffffff35;
+  border-radius: 0 0 .5rem .5rem;
+  background: var(--b-key-clr);
+  border-bottom: var(--b-key-border);
+  margin-left: -2rem;
+  z-index: 2;
+}
+
+.black-pressed {
+  background: linear-gradient(#333, #000);
+  border: none;
+  height: 14.8rem;
+}
+
+.piano-keys .white:nth-child(1) {
+  margin-left: 0;
+}
+
+.piano-keys .white:nth-child(5),
+.piano-keys .white:nth-child(12),
+.piano-keys .white:nth-child(17) {
+  margin-right: 2rem;
+}
+
+.disabled-keys span {
+  opacity: 0;
+}
